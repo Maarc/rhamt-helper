@@ -15,7 +15,7 @@ rhamt-helper automates the following tasks:
 
 1. Copy the applications you want to analyze in sub-directories of "02__apps"
 +
-For performance reasons, it is not recommended to analyze more than 1 GB of applications in a same report. Split the applications you want to analyze in several sub-directories of "02__apps".
+TIP: For performance reasons, it is not recommended to analyze more than 1 GB of applications in a same report. Split the applications you want to analyze in several sub-directories of "02__apps".
 
 2. (optional) Adjust the configuration
 +
