@@ -35,7 +35,7 @@ TIP: For performance reasons, it is not recommended to analyze more than 1 GB of
 ("" -> decompiles everything, "de nl" -> decompiles de.* and nl.* packages)
 *** *TARGET*: RHAMT targets
 
-3. Execute
+3. Execute the RHAMT helper
 
  $ ./run.sh
 
