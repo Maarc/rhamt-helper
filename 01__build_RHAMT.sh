@@ -18,14 +18,14 @@ MVN_ARGS='-T 4 -U clean install'
 # Clone the ${1} GitHub repostory.
 function git_clone() {
   echo ">>> Checkout '${1}/${2}'"
-  cd ${DIR_GIT_CODE}
-  if [ -d "${3}" ]; then
+  if [ -d "${DIR_GIT_CODE}/${2}" ]; then
     # git pull if the directory exists
-    cd ${1}
+    cd ${DIR_GIT_CODE}/${2}
     git pull
   else
     # otherwise full checkout
-    git clone  --depth 1 -b master "https://github.com/${1}/${2}.git"
+    cd ${DIR_GIT_CODE}
+    git clone --depth 1 -b master "https://github.com/${1}/${2}.git"
   fi
 }
 
