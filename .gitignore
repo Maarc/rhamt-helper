@@ -1,0 +1,5 @@
+01__RHAMT
+01__RHAMT_code
+02__apps/*/
+02__reports
+*.log
