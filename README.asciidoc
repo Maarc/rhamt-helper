@@ -1,6 +1,6 @@
-= RHAMT Helper
+= RHAMT helper
 
-RHAMT automates the following tasks:
+RHAMT helper automates the following tasks:
 
 * build of the latest Red Hat Application Migration Toolkit (RHAMT) Command Line Interface (CLI)
 * batch analysis of Java applications grouped in several subfolders
