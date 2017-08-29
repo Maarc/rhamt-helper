@@ -52,7 +52,7 @@ function main() {
   git_clone ${RHAMT_BASE_REPO} "windup-rulesets"
   git_clone ${RHAMT_BASE_REPO} "windup-distribution"
 
-  mvn_a "tattletale-eap7"
+  mvn_a "tattletale-eap7/pom.xml"
 
   # Correct an issue with test dependencies in decompiler/api
   mvn_t "windup/bom"
