@@ -64,7 +64,7 @@ function main() {
   mvn_t "windup-rulesets"
   mvn_t "windup-distribution"
 
-  DIST=$(find ${DIR_GIT_CODE} -type f -name "rhamt-cli*.zip" -exec echo {} \;)
+  DIST=$(find -L ${DIR_GIT_CODE} -type f -name "rhamt-cli*.zip" -exec echo {} \;)
   echo ">>> RHAMT built successfully in ${DIST}"
 
   # Unpack the distribution

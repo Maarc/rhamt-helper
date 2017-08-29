@@ -56,7 +56,7 @@ function main() {
   mvn_t "windup-web" "-pl !:windup-tests-e2e,!tests"
   mvn_t "windup-web-distribution"
 
-  DIST=$(find ${DIR_GIT_CODE} -type f -name "rhamt-web-distribution*.zip" -exec echo {} \;)
+  DIST=$(find -L ${DIR_GIT_CODE} -type f -name "rhamt-web-distribution*.zip" -exec echo {} \;)
   echo ">>> RHAMT built successfully in ${DIST}"
 
   cd ${DIR_CURRENT}
