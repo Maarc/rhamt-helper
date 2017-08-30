@@ -2,8 +2,8 @@
 
 Red Hat Application Migration Toolkit (RHAMT) helper automates the following tasks:
 
-* build of the latest RHAMT Command-Line Interface (CLI) and Web Console (__01_build_RHAMT.sh__ script)
-* batch analysis of Java applications grouped in several subfolders (__02_analyze_apps.sh__ script)
+* *build* of the latest RHAMT Command-Line Interface (CLI) and Web Console (__"01_build_RHAMT.sh"__ and __"01_build_RHAMT_web.sh"__ scripts)
+* *batch analysis* of an important amount of Java applications grouped in several subfolders (__"02_analyze_apps.sh"__ script)
 
 
 == Usage
