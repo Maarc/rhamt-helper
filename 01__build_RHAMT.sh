@@ -4,6 +4,10 @@
 # => "Maarc" is the report with the latest corrected rules
 # => "windup" is the official repo
 RHAMT_BASE_REPO="Maarc"
+RHAMT_VERSION="4.1.0-SNAPSHOT"
+# Master version
+RHAMT_TAG=""
+#RHAMT_TAG=${RHAMT_VERSION}  --> for a specific tag
 
 # Current directory
 DIR_CURRENT=$(pwd)
@@ -26,6 +30,15 @@ function git_clone() {
     # otherwise full checkout
     cd ${DIR_GIT_CODE}
     git clone --depth 1 -b master "https://github.com/${1}/${2}.git"
+    if [ -z ${3} ]; then
+      echo "<<<"
+    else
+      cd ${DIR_GIT_CODE}/${2}
+      git fetch && git fetch --tags
+      echo "git checkout tags/${3}"
+      git checkout tags/${3}
+      echo "<<<"
+    fi
   fi
 }
 
@@ -47,10 +60,13 @@ function main() {
   mkdir -p ${DIR_GIT_CODE} ${DIR_DIST}
 
   # Checkout source code from GitHub
-  git_clone "Maarc" "tattletale-eap7"
-  git_clone ${RHAMT_BASE_REPO} "windup"
-  git_clone ${RHAMT_BASE_REPO} "windup-rulesets"
-  git_clone ${RHAMT_BASE_REPO} "windup-distribution"
+  git_clone ${RHAMT_BASE_REPO} "tattletale-eap7"
+
+  git_clone ${RHAMT_BASE_REPO} "windup-distribution" "${RHAMT_TAG}"
+
+  git_clone ${RHAMT_BASE_REPO} "windup" "${RHAMT_TAG}"
+  git_clone ${RHAMT_BASE_REPO} "windup-rulesets" "${RHAMT_TAG}"
+  git_clone ${RHAMT_BASE_REPO} "windup-distribution" "${RHAMT_TAG}"
 
   mvn_a "tattletale-eap7/pom.xml"
 
@@ -70,9 +86,9 @@ function main() {
   # Unpack the distribution
   unzip ${DIST} -d ${DIR_DIST}
 
-  # Remove the intermediary "rhamt-cli-4.0.0-SNAPSHOT" directory
-  mv ${DIR_DIST}/rhamt-cli-4.0.0-SNAPSHOT/* ${DIR_DIST}
-  rm -Rf ${DIR_DIST}/rhamt-cli-4.0.0-SNAPSHOT
+  # Remove the intermediary "rhamt-cli-${RHAMT_VERSION}" directory
+  mv ${DIR_DIST}/rhamt-cli-${RHAMT_VERSION}/* ${DIR_DIST}
+  rm -Rf ${DIR_DIST}/rhamt-cli-${RHAMT_VERSION}
 
   cd ${DIR_CURRENT}
 }

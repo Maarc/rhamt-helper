@@ -8,8 +8,8 @@ export MAX_METASPACE_SIZE="1024m"
 # Decompiled Java packages (for example PACKAGES="nl de")
 PACKAGES=""
 # RHAMT analysis targets
-TARGET="cloud-readiness eap:7"
-
+TARGET="cloud-readiness eap:7 linux"
+#TARGET=" "
 
 DIR_CURRENT=$(pwd)
 RHAMT_HOME=${DIR_CURRENT}/01__RHAMT
